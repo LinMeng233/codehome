@@ -1,8 +1,9 @@
 package com.huanyupiaoling.codehome.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
     private long id;
     private String email;
     private String password;
@@ -11,6 +12,7 @@ public class User {
     private int status;
     private Date regTime;
     private String regIp;
+    private String data;
 
     public long getId() {
         return id;
@@ -74,5 +76,13 @@ public class User {
 
     public void setRegIp(String regIp) {
         this.regIp = regIp;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }

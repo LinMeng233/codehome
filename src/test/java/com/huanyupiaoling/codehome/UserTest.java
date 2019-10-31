@@ -19,22 +19,8 @@ public class UserTest {
 
     @Test
     public void test(){
-        long id=1;
+        long id=12345;
         User user=userDao.selectUser(id);
         System.out.println(user.getUsername());
-        Thread[] ts=new Thread[10];
-        for(int i=0;i<10;i++){
-            ts[i]=new Thread(){
-                @Override
-                public void run(){
-                    while (true)
-                    System.out.println(Thread.currentThread().getName());
-                }
-
-            };
-            ts[i].setName("线程"+i);
-            ts[i].start();
-
-        }
     }
 }
