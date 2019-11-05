@@ -18,6 +18,20 @@
 
     <!-- 静态资源默认servlet配置 -->
     <mvc:default-servlet-handler/>
+    <!-- springMVC拦截器 -->
+    <mvc:interceptors>
+
+        <mvc:interceptor>
+
+            <mvc:mapping path="/user/*"/>
+
+            <bean id="handlerInterceptorOne"
+
+                  class="com.huanyupiaoling.codehome.interceptor.HanderInterceptorOne"/>
+
+        </mvc:interceptor>
+
+    </mvc:interceptors>
 
     <!-- 配置jsp 显示ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
