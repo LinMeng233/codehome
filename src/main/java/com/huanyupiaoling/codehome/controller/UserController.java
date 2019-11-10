@@ -26,6 +26,7 @@ public class UserController {
     @RequestMapping("/hello")
     public User getHello(){
         User user=new User();
+        user.setEmail("291157220");
         user.setUsername("你好");
         return user;
     }
