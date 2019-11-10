@@ -11,5 +11,8 @@
         <module name="codehome" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="codehome" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
