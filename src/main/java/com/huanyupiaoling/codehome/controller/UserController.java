@@ -2,7 +2,9 @@ package com.huanyupiaoling.codehome.controller;
 
 import com.huanyupiaoling.codehome.model.User;
 import com.huanyupiaoling.codehome.service.UserService;
+import com.sun.deploy.net.HttpResponse;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,7 +26,7 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping("/hello")
-    public User getHello(){
+    public Object getHello(){
         User user=new User();
         user.setEmail("291157220");
         user.setUsername("你好");

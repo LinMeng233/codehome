@@ -19,8 +19,9 @@ public class UserTest {
 
     @Test
     public void test(){
-        long id=12345;
-        User user=userDao.selectUser(id);
-        System.out.println(user.getUsername());
+        User user=new User();
+        user.setUsername("sb");
+        user.setEmail("291157220");
+        System.out.println();
     }
 }
