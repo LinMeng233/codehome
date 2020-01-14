@@ -3,7 +3,7 @@ package com.huanyupiaoling.codehome.model;
 import java.util.Date;
 
 public class User  {
-    private long id;
+    public long id=1;
     private String email;
     private String password;
     private String username;
