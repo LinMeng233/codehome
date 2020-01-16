@@ -6,23 +6,29 @@ package com.huanyupiaoling.codehome.aop;
  * @date Created in 2020/1/13 14:58
  */
 
-import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 public class LogAdvice {
 
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
+
 /*	@DeclareParents(value="com.ctc.ServiceImpl.*+",
 			defaultImpl=Adult.class)
 	public static AgeGroup ageGroup;*/
 
     //所有的通知都可以使用这种方式，直接把Pointcut跟Advice连接起来，但是为了更好的理解前文的概念以及图片,这边分开定义。
-    @Before("execution(* com.huanyupiaoling.codehome.controller.*.*(..))")
-    public void before(ProceedingJoinPoint joinPoint){
-        System.out.println("LogAdvice before advice ");
+    @Before("execution(* com.huanyupiaoling.codehome.service.*.*(..))")
+    public void before(JoinPoint joinPoint){
+
+        logger.info("执行切面一"+String.valueOf(joinPoint));
     }
 
 /*	@AfterReturning("com.ctc.AspectJ.UserAspect.addLog()")

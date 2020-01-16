@@ -2,8 +2,9 @@ package com.huanyupiaoling.codehome;
 
 
 
-import java.util.ArrayList;
-import java.util.List;
+import com.huanyupiaoling.codehome.app.Appconfig;
+import com.huanyupiaoling.codehome.model.UserSon;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  *
@@ -11,12 +12,10 @@ import java.util.List;
 public class MainTest {
 
     public static void main(String[] args){
-        List<Integer> list = new ArrayList<>(10);
-        for (Integer integer : list) {
-            if (null != integer) {
-                System.out.println(integer);
-            }
-        }
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
+        System.out.println(annotationConfigApplicationContext.getBean(UserSon.class));
+
+
 
     }
 }

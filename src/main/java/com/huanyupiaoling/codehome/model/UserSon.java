@@ -1,10 +1,7 @@
 package com.huanyupiaoling.codehome.model;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Map;
 
-@Component
 public class UserSon extends User{
     public long id=2;
     private Map<String,String> dataMap;

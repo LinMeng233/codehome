@@ -15,6 +15,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User selecttUser(User user){
         return userDao.selectUser(user.getId());
+    }
 
+    @Override
+    public User selectUser(long id){
+        return userDao.selectUser(id);
     }
 }

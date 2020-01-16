@@ -1,30 +1,27 @@
 package com.huanyupiaoling.codehome;
 
-import com.huanyupiaoling.codehome.dao.UserDao;
 import com.huanyupiaoling.codehome.model.User;
+import com.huanyupiaoling.codehome.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring-mybatis.xml"})
-public class UserTest {
+@ContextConfiguration({"classpath:spring-mybatis.xml","classpath:application.xml"})
+@ComponentScan("com.huanyupiaoling.codehome")
+public class UserTest  {
     @Autowired
-    UserDao userDao;
+    UserService userService;
     final ReentrantReadWriteLock lock = new ReentrantReadWriteLock ();
 
 
-
     @Test
-    public void test(){
-        lock.readLock().lock();
-        User user=new User();
-        user.setUsername("sb");
-        user.setEmail("291157220");
-        System.out.println();
+    public void test() {
+        User user = userService.selectUser(123456789);
     }
 }
