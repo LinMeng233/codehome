@@ -1,7 +1,12 @@
 package com.huanyupiaoling.codehome.model;
 
+import com.huanyupiaoling.codehome.model.vo.FrontResponse;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 import java.util.Date;
 
+@Component
 public class User  {
     public long id=1;
     private String email;
@@ -12,7 +17,10 @@ public class User  {
     private Date regTime;
     private String regIp;
     private String data;
-    private String inner="inner";
+    @Resource
+    private FrontResponse frontResponse;
+    @Resource
+    private UserSon userSon;
 
     public long getId() {
         return id;
@@ -40,7 +48,6 @@ public class User  {
     }
 
     public String getUsername() {
-        System.out.println(username);
         return username;
     }
 
@@ -86,5 +93,12 @@ public class User  {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public UserSon getUserSon() {
+        return userSon;
+    }
+    public void setUserSon(UserSon userSon) {
+        this.userSon = userSon;
     }
 }

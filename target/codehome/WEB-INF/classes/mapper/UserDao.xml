@@ -7,6 +7,13 @@
     <select id="selectUser" resultType="User" parameterType="long">
        SELECT * FROM user WHERE id = #{id}
    </select>
+    <insert id="insertUser"  parameterType="User">
+<!--        <selectKey resultType="long" keyProperty="id" order="BEFORE">-->
+<!--            SELECT ACCOUNT_SEQ.NEXTVAL FROM dual-->
+<!--        </selectKey>-->
+        INSERT INTO user(id,email,password,username,role,status,regTime,regIp,data)
+        VALUES (#{id},#{email},#{password},#{username},#{role},#{status},#{regTime},#{regIp},#{data})
+    </insert>
 
 
 

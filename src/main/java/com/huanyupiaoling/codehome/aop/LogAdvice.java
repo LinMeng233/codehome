@@ -6,12 +6,17 @@ package com.huanyupiaoling.codehome.aop;
  * @date Created in 2020/1/13 14:58
  */
 
+import com.alibaba.fastjson.JSON;
+import com.huanyupiaoling.codehome.api.Api;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Method;
 
 @Aspect
 @Component
@@ -25,10 +30,12 @@ public class LogAdvice {
 	public static AgeGroup ageGroup;*/
 
     //所有的通知都可以使用这种方式，直接把Pointcut跟Advice连接起来，但是为了更好的理解前文的概念以及图片,这边分开定义。
-    @Before("execution(* com.huanyupiaoling.codehome.service.*.*(..))")
+    @Before("execution(* com.huanyupiaoling.codehome.controller.*.*(..))")
     public void before(JoinPoint joinPoint){
-
-        logger.info("执行切面一"+String.valueOf(joinPoint));
+        MethodSignature methodSignature= (MethodSignature)joinPoint.getSignature();
+        Method method=methodSignature.getMethod();
+        Api api=method.getAnnotation(Api.class);
+        logger.info("request"+JSON.toJSON(joinPoint.getArgs()));
     }
 
 /*	@AfterReturning("com.ctc.AspectJ.UserAspect.addLog()")

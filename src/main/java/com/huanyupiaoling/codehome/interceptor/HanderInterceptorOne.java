@@ -12,12 +12,11 @@ public class HanderInterceptorOne implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         Cookie[] cookies=httpServletRequest.getCookies();
-        System.out.println(httpServletRequest.getSession());
-        System.out.println(httpServletRequest.getHeaderNames());
+        String uri=httpServletRequest.getRequestURI();
+        String Ip=httpServletRequest.getRemoteAddr();
         Cookie cookie=new Cookie("userName","sb");
         cookie.setMaxAge(60*60*24*365);
         httpServletResponse.addCookie(cookie);
-        System.out.println();
         return true;
     }
 

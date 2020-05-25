@@ -5,4 +5,5 @@ import com.huanyupiaoling.codehome.model.User;
 public interface UserService {
     public User selecttUser(User user);
     public User selectUser(long id);
+    public void addUser(User user);
 }

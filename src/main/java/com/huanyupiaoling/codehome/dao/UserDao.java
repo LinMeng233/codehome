@@ -7,5 +7,7 @@ public interface UserDao {
 
     User selectUser(long id);
 
+    void insertUser(User user);
+
 
 }
